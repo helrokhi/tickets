@@ -56,7 +56,7 @@ public class TicketIndex {
         long hour = secs / 3600,
                 min = secs / 60 % 60,
                 sec = secs / 1 % 60;
-        return String.format("%02d:%02d:%02d", hour, min, sec);
+        return String.format("%02dh %02dm %02ds", hour, min, sec);
     }
 
     private HashMap<String, Long> minFlightTimeMapInSeconds() {

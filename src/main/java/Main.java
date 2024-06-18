@@ -12,6 +12,8 @@ import java.util.List;
 public class Main {
     private static final String DATA_FILE = "src/main/resources/ticket-office.json";
     private static TicketIndex ticketIndex;
+    private static final String ORIGIN = "VVO";
+    private static final String DESTINATION = "TLV";
 
     public static void main(String[] args) {
         createTicketIndex();
@@ -62,7 +64,9 @@ public class Main {
                     ((Long) ticketJsonObject.get("stops")).intValue(),
                     (Long) ticketJsonObject.get("price")
             );
-            ticketIndex.addTicket(ticket);
+            if (ticket.getOrigin().equals(ORIGIN) & ticket.getDestination().equals(DESTINATION)) {
+                ticketIndex.addTicket(ticket);
+            }
         });
     }
 
